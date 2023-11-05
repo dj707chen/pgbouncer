@@ -3,9 +3,9 @@ resource "random_id" "suffix" {
 }
 
 locals {
-  users    = [for u in var.users : ({ name = u.name, password = u.password })]
-  admins   = [for u in var.users : u.name if lookup(u, "admin", false) == true]
-  userlist = templatefile("${path.module}/templates/userlist.txt.tmpl", { users = local.users })
+  users        = [for u in var.users : ({ name = u.name, password = u.password })]
+  admins       = [for u in var.users : u.name if lookup(u, "admin", false) == true]
+  userlist     = templatefile("${path.module}/templates/userlist.txt.tmpl", { users = local.users })
   cloud_config = templatefile(
     "${path.module}/templates/pgbouncer.ini.tmpl",
     {
@@ -23,7 +23,7 @@ locals {
     }
   )
 
-  configure_hammerdb = templatefile("${path.module}/scripts/configure_hammerdb.sh.tmpl", {})
+  configure_hammerdb     = templatefile("${path.module}/scripts/configure_hammerdb.sh.tmpl", {})
   configure_hammerdb_tcl = templatefile("${path.module}/scripts/configure_hammerdb.tcl.tmpl", {
     pgbouncer_host = var.pgbouncer_host
     pgbouncer_port = var.listen_port
@@ -51,10 +51,10 @@ locals {
   clean_up = templatefile("${path.module}/scripts/clean_up.sh.tmpl", {})
 
   read_replica_ip_configuration = {
-    ipv4_enabled       = false
-    require_ssl        = false
-    private_network    = module.vpc_network.network_self_link
-    allocated_ip_range = null
+    ipv4_enabled        = false
+    require_ssl         = false
+    private_network     = module.vpc_network.network_self_link
+    allocated_ip_range  = null
     authorized_networks = [
       {
         name  = "${var.project_id}-cidr"
@@ -66,7 +66,7 @@ locals {
 
 data "template_file" "cloud_config" {
   template = file("${path.module}/templates/cloud-init.yaml.tmpl")
-  vars = {
+  vars     = {
     image                        = "edoburu/pgbouncer:${var.pgbouncer_image_tag}"
     listen_port                  = var.listen_port
     config                       = base64encode(local.cloud_config)
@@ -116,12 +116,14 @@ module "activate-services" {
     "servicenetworking.googleapis.com",
   ]
 
-  activate_api_identities = [{
-    api = "servicenetworking.googleapis.com"
-    roles = [
-      "roles/servicenetworking.serviceAgent",
-    ]
-  }]
+  activate_api_identities = [
+    {
+      api   = "servicenetworking.googleapis.com"
+      roles = [
+        "roles/servicenetworking.serviceAgent",
+      ]
+    }
+  ]
 
 }
 
@@ -133,14 +135,14 @@ module "vpc_network" {
   network_name     = var.network_name
   subnets          = var.subnets
   secondary_ranges = var.secondary_ranges
-  depends_on = [
+  depends_on       = [
     module.activate-services
   ]
 }
 
 data "google_compute_image" "boot" {
-  project = split("/", var.boot_image)[0]
-  family  = split("/", var.boot_image)[1]
+  project    = split("/", var.boot_image)[0]
+  family     = split("/", var.boot_image)[1]
   depends_on = [
     module.activate-services
   ]
@@ -162,7 +164,6 @@ resource "google_compute_instance" "pgbouncer_instance" {
       size  = "10"
     }
   }
-
 
 
   allow_stopping_for_update = true
@@ -212,14 +213,13 @@ resource "google_compute_firewall" "pgbouncer" {
 }
 
 
-
-# Creating a service account for the Cloud SQL Proxy 
+# Creating a service account for the Cloud SQL Proxy
 module "cloud_sql_proxy_service_account" {
   source  = "terraform-google-modules/service-accounts/google"
   version = "3.0.0"
 
-  project_id = var.project_id
-  names      = ["cloud-sql-proxy"]
+  project_id    = var.project_id
+  names         = ["cloud-sql-proxy"]
   project_roles = [
     "${var.project_id}=>roles/cloudsql.admin",
     "${var.project_id}=>roles/storage.admin",
@@ -265,9 +265,9 @@ module "db" {
   deletion_protection = false
 
   ip_configuration = {
-    ipv4_enabled    = false
-    private_network = module.vpc_network.network_self_link
-    require_ssl     = false
+    ipv4_enabled        = false
+    private_network     = module.vpc_network.network_self_link
+    require_ssl         = false
     authorized_networks = [
       {
         name  = "${var.project_id}-cidr"
@@ -278,7 +278,7 @@ module "db" {
 
   # Read replica configurations
   read_replica_name_suffix = "-ha"
-  read_replicas = [
+  read_replicas            = [
     {
       name                  = "-0"
       zone                  = "us-east1-b"

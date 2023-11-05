@@ -99,7 +99,7 @@ variable "listen_port" {
 variable "users" {
   description = "The list of users to be created in PgBouncer's userlist.txt. Passwords can be provided as plain-text."
   type        = list(any)
-  default = [
+  default     = [
     {
       name : "admin"
       password : "admin@123"
