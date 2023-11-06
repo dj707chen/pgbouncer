@@ -51,14 +51,14 @@ locals {
   clean_up = templatefile("${path.module}/scripts/clean_up.sh.tmpl", {})
 
   read_replica_ip_configuration = {
-    ipv4_enabled        = false
+    ipv4_enabled        = true
     require_ssl         = false
     private_network     = module.vpc_network.network_self_link
     allocated_ip_range  = null
     authorized_networks = [
       {
-        name  = "${var.project_id}-cidr"
-        value = module.vpc_network.subnets[keys(module.vpc_network.subnets)[0]].ip_cidr_range
+        name  = "MyMac-cidr"
+        value = "69.174.173.0/24"
       }
     ]
   }
@@ -110,10 +110,12 @@ module "activate-services" {
   disable_services_on_destroy = true
 
   activate_apis = [
-    "compute.googleapis.com",
-    "cloudresourcemanager.googleapis.com",
-    "sqladmin.googleapis.com",
-    "servicenetworking.googleapis.com",
+    # Enable manually outside
+    #    "compute.googleapis.com",
+    #    "sqladmin.googleapis.com",
+    #    "cloudbilling.googleapis.com",
+    #    "servicenetworking.googleapis.com",
+    #    "cloudresourcemanager.googleapis.com",
   ]
 
   activate_api_identities = [
@@ -128,9 +130,35 @@ module "activate-services" {
 }
 
 
+# Based on ------ start
+#   https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#private-ip-instance
+#resource "google_compute_network" "private_network" {
+#  provider = google-beta
+#  project  = var.project_id
+#  name     = "private-network"
+#  auto_create_subnetworks = true
+#}
+#
+#resource "google_compute_global_address" "private_ip_address" {
+#  provider      = google-beta
+#  name          = "private-ip-address"
+#  purpose       = "VPC_PEERING"
+#  address_type  = "INTERNAL"
+#  prefix_length = 24
+#  network       = google_compute_network.private_network.id
+#}
+#
+#resource "google_service_networking_connection" "private_vpc_connection" {
+#  provider                = google-beta
+#  network                 = google_compute_network.private_network.id
+#  service                 = "servicenetworking.googleapis.com"
+#  reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
+#}
+# Based on ------ end
+
 module "vpc_network" {
   source           = "terraform-google-modules/network/google"
-  version          = "5.1.0"
+  version          = "~> 7.5.0"
   project_id       = var.project_id
   network_name     = var.network_name
   subnets          = var.subnets
@@ -216,10 +244,10 @@ resource "google_compute_firewall" "pgbouncer" {
 # Creating a service account for the Cloud SQL Proxy
 module "cloud_sql_proxy_service_account" {
   source  = "terraform-google-modules/service-accounts/google"
-  version = "3.0.0"
+  version = "~> 4.2.2"
 
   project_id    = var.project_id
-  names         = ["cloud-sql-proxy"]
+  names         = ["cloud-sql-proxy-sa-1"]
   project_roles = [
     "${var.project_id}=>roles/cloudsql.admin",
     "${var.project_id}=>roles/storage.admin",
@@ -229,7 +257,7 @@ module "cloud_sql_proxy_service_account" {
 # Private service access for Cloud SQL
 module "private_service_access" {
   source  = "GoogleCloudPlatform/sql-db/google//modules/private_service_access"
-  version = "~>5.0.0"
+  version = "~>16.1.0"
 
   project_id  = var.project_id
   vpc_network = module.vpc_network.network_name
@@ -239,11 +267,13 @@ module "private_service_access" {
   ]
 }
 
-
 # Postgres HA Cloud SQL instance
 module "db" {
+  # https://registry.terraform.io/modules/GoogleCloudPlatform/sql-db/google/latest/submodules/postgresql
   source  = "GoogleCloudPlatform/sql-db/google//modules/postgresql"
-  version = "~>5.0.0"
+  version = "~>16.1.0"
+
+  #  depends_on = [google_service_networking_connection.private_vpc_connection]
 
   project_id           = var.project_id
   name                 = "db-pgbouncer"
@@ -265,13 +295,16 @@ module "db" {
   deletion_protection = false
 
   ip_configuration = {
-    ipv4_enabled        = false
+    ipv4_enabled        = true
     private_network     = module.vpc_network.network_self_link
     require_ssl         = false
+    allocated_ip_range  = "google-managed-services-db-vpc"
     authorized_networks = [
       {
-        name  = "${var.project_id}-cidr"
-        value = module.vpc_network.subnets[keys(module.vpc_network.subnets)[0]].ip_cidr_range
+        #        name  = "${var.project_id}-app-vpc-us-west4-cidr"
+        #        value = "10.182.0.0/20"
+        name  = "MyMac-cidr"
+        value = "69.174.173.0/24"
       }
     ]
   }

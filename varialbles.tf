@@ -28,22 +28,22 @@ variable "subnets" {
   default = [
     {
       subnet_name           = "us-central1-subnet"
-      subnet_ip             = "10.0.1.0/24"
+      subnet_ip             = "10.128.0.0/20"
       subnet_region         = "us-central1"
       subnet_private_access = true
     },
-    {
-      subnet_name           = "us-east1-subnet"
-      subnet_ip             = "10.0.2.0/24"
-      subnet_region         = "us-east1"
-      subnet_private_access = true
-    },
-    {
-      subnet_name           = "us-west1-subnet"
-      subnet_ip             = "10.0.3.0/24"
-      subnet_region         = "us-west1"
-      subnet_private_access = true
-    },
+#    {
+#      subnet_name           = "us-east1-subnet"
+#      subnet_ip             = "10.0.2.0/24"
+#      subnet_region         = "us-east1"
+#      subnet_private_access = true
+#    },
+#    {
+#      subnet_name           = "us-west1-subnet"
+#      subnet_ip             = "10.0.3.0/24"
+#      subnet_region         = "us-west1"
+#      subnet_private_access = true
+#    },
   ]
 }
 
