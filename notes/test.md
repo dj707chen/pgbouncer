@@ -19,7 +19,9 @@ need to run /usr/bin/toolbox
         configure-hammerdb.sh  pgbouncer.ini           run_workload.tcl  stop_all_services.sh   userlist.txt
 
 ## Connect from local
-
+    gcloud compute start-iap-tunnel pgbouncer-instance-96dba99e9b 22 \
+        --zone=us-central1-a \
+        --local-host-port=localhost:4226
     psql -h 34.72.24.75 -p 6432 --username=testuser testdb
         Password for user testuser:
         psql: error: connection to server at "34.72.24.75", port 6432 failed: FATAL:  SASL authentication failed
