@@ -41,7 +41,7 @@ locals {
     cloud_sql_instance_name = module.db.instance_connection_name
     cloud_sql_replica_name  = module.db.replicas_instance_connection_names[0]
     cloud_sql_proxy_image   = var.cloud_sql_proxy_image
-    image                   = "edoburu/pgbouncer:${var.pgbouncer_image_tag}"
+    pgbouncer_image         = "edoburu/pgbouncer:${var.pgbouncer_image_tag}"
   })
 
   stop_all_services = templatefile("${path.module}/scripts/stop_all_services.sh.tmpl", {})
@@ -67,7 +67,7 @@ locals {
 data "template_file" "cloud_config" {
   template = file("${path.module}/templates/cloud-init.yaml.tmpl")
   vars     = {
-    image                        = "edoburu/pgbouncer:${var.pgbouncer_image_tag}"
+    pgbouncer_image              = "edoburu/pgbouncer:${var.pgbouncer_image_tag}"
     listen_port                  = var.listen_port
     config                       = base64encode(local.cloud_config)
     userlist                     = base64encode(local.userlist)
@@ -233,6 +233,11 @@ resource "google_compute_firewall" "pgbouncer" {
     ports    = ["6432"]
   }
 
+  allow {
+    protocol = "icmp"
+    # ports  = ["65534"] port only allowed for tcp and udp
+  }
+
   source_ranges = ["0.0.0.0/0"]
 
   target_tags = ["pgbouncer"]
@@ -298,7 +303,7 @@ module "db" {
     ipv4_enabled        = true
     private_network     = module.vpc_network.network_self_link
     require_ssl         = false
-    allocated_ip_range  = "google-managed-services-db-vpc"
+    allocated_ip_range  = module.private_service_access.google_compute_global_address_name # "google-managed-services-db-vpc"
     authorized_networks = [
       {
         #        name  = "${var.project_id}-app-vpc-us-west4-cidr"

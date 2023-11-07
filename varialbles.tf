@@ -102,10 +102,12 @@ variable "users" {
   default     = [
     {
       name : "admin"
+      admin: true
       password : "admin@123"
     },
     {
       name : "postgres"
+      admin: true
       password : "admin@123"
     }
   ]
