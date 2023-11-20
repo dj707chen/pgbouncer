@@ -110,6 +110,7 @@ module "activate-services" {
   disable_services_on_destroy = true
 
   activate_apis = [
+    # Already enabled
     # Enable manually outside
     #    "compute.googleapis.com",
     #    "sqladmin.googleapis.com",
@@ -128,33 +129,6 @@ module "activate-services" {
   ]
 
 }
-
-
-# Based on ------ start
-#   https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance#private-ip-instance
-#resource "google_compute_network" "private_network" {
-#  provider = google-beta
-#  project  = var.project_id
-#  name     = "private-network"
-#  auto_create_subnetworks = true
-#}
-#
-#resource "google_compute_global_address" "private_ip_address" {
-#  provider      = google-beta
-#  name          = "private-ip-address"
-#  purpose       = "VPC_PEERING"
-#  address_type  = "INTERNAL"
-#  prefix_length = 24
-#  network       = google_compute_network.private_network.id
-#}
-#
-#resource "google_service_networking_connection" "private_vpc_connection" {
-#  provider                = google-beta
-#  network                 = google_compute_network.private_network.id
-#  service                 = "servicenetworking.googleapis.com"
-#  reserved_peering_ranges = [google_compute_global_address.private_ip_address.name]
-#}
-# Based on ------ end
 
 module "vpc_network" {
   source           = "terraform-google-modules/network/google"
@@ -293,7 +267,7 @@ module "db" {
   user_name     = var.db_user
   user_password = var.db_password
 
-  # additional_users = var.users
+  additional_users = var.users
 
   availability_type = "REGIONAL"
 
@@ -306,7 +280,7 @@ module "db" {
     allocated_ip_range  = module.private_service_access.google_compute_global_address_name # "google-managed-services-db-vpc"
     authorized_networks = [
       {
-        #        name  = "${var.project_id}-app-vpc-us-west4-cidr"
+        #        name  = "${var.project_id}-app-vpc-us-central1-cidr"
         #        value = "10.182.0.0/20"
         name  = "MyMac-cidr"
         value = "69.174.173.0/24"
