@@ -1,0 +1,392 @@
+
+18:10:07.747 UTC [1] DEBUG parse_ini_file: 'verbose' = '2' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'log_stats' = '1'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'log_stats' = '1' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'log_connections' = '1'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'log_connections' = '1' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'log_disconnections' = '1'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'log_disconnections' = '1' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'log_pooler_errors' = '1'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'log_pooler_errors' = '1' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'auth_query' = 'SELECT username, password from pgbouncer.get_auth($1)'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'auth_query' = 'SELECT username, password from pgbouncer.get_auth($1)' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'auth_user' = 'pgbouncer'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'auth_user' = 'pgbouncer' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'max_db_connections' = '100'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'max_db_connections' = '100' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'max_client_conn' = '100'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'max_client_conn' = '100' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'pool_mode' = 'transaction'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'pool_mode' = 'transaction' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'default_pool_size' = '20'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'default_pool_size' = '20' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'admin_users' = 'admin,postgres'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'admin_users' = 'admin,postgres' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'stats_users' = 'admin,postgres'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'stats_users' = 'admin,postgres' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'ignore_startup_parameters' = 'extra_float_digits, options'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'ignore_startup_parameters' = 'extra_float_digits, options' ok:1
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'application_name_add_host' = '1'
+18:10:07.748 UTC [1] DEBUG parse_ini_file: 'application_name_add_host' = '1' ok:1
+18:10:07.748 UTC [1] DEBUG loading auth_file: "/etc/pgbouncer/userlist.txt"
+18:10:07.748 UTC [1] DEBUG pktbuf_dynamic(128): 0x7f3e1921b2b0
+18:10:07.748 UTC [1] DEBUG make_room(0x7f3e1921b2b0, 9): realloc newlen=256
+18:10:07.748 UTC [1] DEBUG pktbuf_dynamic(128): 0x7f3e1921b2f0
+18:10:07.751 UTC [1] LOG kernel file descriptor limit: 1048576 (hard: 1048576); max_client_conn: 100, max expected fd use: 112
+18:10:07.751 UTC [1] DEBUG adns_create_context: evdns2
+18:10:07.753 UTC [1] DEBUG add_listen: 0.0.0.0:6432
+18:10:07.753 UTC [1] LOG listening on 0.0.0.0:6432
+18:10:07.754 UTC [1] LOG process up: PgBouncer 1.21.0, libevent 2.1.12-stable (epoll), adns: evdns2, tls: OpenSSL 3.1.4 24 Oct 2023
+
+
+18:10:44.299 UTC [1] DEBUG C-0x7f3e191f9360: (nodb)/(nouser)@69.174.173.95:35544 P: got connection: 69.174.173.95:35544 -> 172.20.0.3:6432
+18:10:44.329 UTC [1] DEBUG C-0x7f3e191f9360: (nodb)/(nouser)@69.174.173.95:35544 got var: user=testuser
+18:10:44.329 UTC [1] DEBUG C-0x7f3e191f9360: (nodb)/(nouser)@69.174.173.95:35544 got var: database=testdb
+18:10:44.329 UTC [1] DEBUG C-0x7f3e191f9360: (nodb)/(nouser)@69.174.173.95:35544 using application_name: psql - 69.174.173.95:35544
+18:10:44.329 UTC [1] DEBUG C-0x7f3e191f9360: (nodb)/(nouser)@69.174.173.95:35544 got var: client_encoding=UTF8
+18:10:44.330 UTC [1] DEBUG pktbuf_dynamic(128): 0x7f3e1921b270
+18:10:44.330 UTC [1] LOG C-0x7f3e191f9360: (nodb)/(nouser)@69.174.173.95:35544 registered new auto-database: testdb
+18:10:44.330 UTC [1] DEBUG C-0x7f3e191f9360: testdb/(nouser)@69.174.173.95:35544 pause_client
+18:10:44.330 UTC [1] DEBUG zone_register(cloudsql-proxy)
+18:10:44.331 UTC [1] DEBUG launch_new_connection: already progress
+18:10:44.331 UTC [1] DEBUG launch_new_connection: already progress
+18:10:44.336 UTC [1] DEBUG launch_new_connection: already progress
+18:10:44.341 UTC [1] DEBUG launch_new_connection: already progress
+18:10:44.351 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@(bad-af):0 dns_callback: inet4: 172.20.0.2:5432
+18:10:44.351 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 launching new connection to server
+18:10:44.352 UTC [1] DEBUG launch_new_connection: already progress
+18:10:44.352 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: connect ok
+18:10:44.352 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 new connection to server (from 172.20.0.3:34890)
+18:10:44.352 UTC [1] DEBUG launch_new_connection: already progress
+18:10:44.366 UTC [1] DEBUG pktbuf_dynamic(512): 0x7f3e191f4c00
+18:10:44.366 UTC [1] DEBUG launch_new_connection: already progress
+18:10:44.369 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 calling login_answer
+18:10:44.369 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: req SASL
+18:10:44.369 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: SASL advertised mechanism: SCRAM-SHA-256
+18:10:44.369 UTC [1] ERROR S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 cannot do SCRAM authentication: wrong password type
+18:10:44.369 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 closing because: failed to answer authreq (age=0s)
+
+
+18:10:49.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:10:49.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:10:50.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:10:50.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:10:50.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:10:51.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:10:51.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:10:51.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:10:52.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:10:52.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:10:52.755 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:10:53.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:10:53.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:10:53.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:10:54.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:10:54.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:10:54.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:10:55.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:10:55.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:10:55.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:10:56.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:10:56.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:10:56.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:10:57.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:10:58.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:10:58.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:10:59.086 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:10:59.422 UTC [1] DEBUG launch_new_connection: already progress
+18:10:59.422 UTC [1] DEBUG launch_new_connection: already progress
+18:10:59.426 UTC [1] DEBUG launch_new_connection: already progress
+18:10:59.438 UTC [1] DEBUG launch_new_connection: already progress
+18:10:59.442 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@(bad-af):0 dns_callback: inet4: 172.20.0.2:5432
+18:10:59.442 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 launching new connection to server
+18:10:59.442 UTC [1] DEBUG launch_new_connection: already progress
+18:10:59.442 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: connect ok
+18:10:59.442 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 new connection to server (from 172.20.0.3:34366)
+18:10:59.442 UTC [1] DEBUG launch_new_connection: already progress
+18:10:59.456 UTC [1] DEBUG launch_new_connection: already progress
+18:10:59.458 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 calling login_answer
+18:10:59.458 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: req SASL
+18:10:59.458 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: SASL advertised mechanism: SCRAM-SHA-256
+18:10:59.458 UTC [1] ERROR S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 cannot do SCRAM authentication: wrong password type
+18:10:59.458 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 closing because: failed to answer authreq (age=0s)
+
+
+18:11:04.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:05.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:05.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:05.755 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:06.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:06.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:06.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:07.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:07.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:07.755 UTC [1] LOG stats: 0 xacts/s, 0 queries/s, 0 client parses/s, 0 server parses/s, 0 binds/s, in 0 B/s, out 0 B/s, xact 0 us, query 0 us, wait 0 us
+18:11:07.755 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:08.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:08.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:08.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:09.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:09.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:09.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:10.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:10.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:10.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:11.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:11.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:11.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:12.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:12.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:13.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:14.086 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:14.422 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@(bad-af):0 dns_callback: inet4: 172.20.0.2:5432
+18:11:14.422 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 launching new connection to server
+18:11:14.423 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: connect ok
+18:11:14.423 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 new connection to server (from 172.20.0.3:48842)
+18:11:14.423 UTC [1] DEBUG launch_new_connection: already progress
+18:11:14.437 UTC [1] DEBUG launch_new_connection: already progress
+18:11:14.440 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 calling login_answer
+18:11:14.440 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: req SASL
+18:11:14.440 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: SASL advertised mechanism: SCRAM-SHA-256
+18:11:14.440 UTC [1] ERROR S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 cannot do SCRAM authentication: wrong password type
+18:11:14.440 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 closing because: failed to answer authreq (age=0s)
+18:11:19.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:20.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:20.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:20.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:21.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:21.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:21.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:22.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:22.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:22.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:23.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:23.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:23.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:24.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:24.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:24.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:25.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:25.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:25.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:26.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:26.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:26.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:27.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:27.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:28.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:29.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:29.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:29.755 UTC [1] DEBUG launch_new_connection: already progress
+18:11:29.755 UTC [1] DEBUG launch_new_connection: already progress
+18:11:29.759 UTC [1] DEBUG launch_new_connection: already progress
+18:11:29.764 UTC [1] DEBUG launch_new_connection: already progress
+18:11:29.768 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@(bad-af):0 dns_callback: inet4: 172.20.0.2:5432
+18:11:29.768 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 launching new connection to server
+18:11:29.768 UTC [1] DEBUG launch_new_connection: already progress
+18:11:29.768 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: connect ok
+18:11:29.768 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 new connection to server (from 172.20.0.3:43392)
+18:11:29.768 UTC [1] DEBUG launch_new_connection: already progress
+18:11:29.783 UTC [1] DEBUG launch_new_connection: already progress
+18:11:29.785 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 calling login_answer
+18:11:29.785 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: req SASL
+18:11:29.785 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: SASL advertised mechanism: SCRAM-SHA-256
+18:11:29.785 UTC [1] ERROR S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 cannot do SCRAM authentication: wrong password type
+18:11:29.785 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 closing because: failed to answer authreq (age=0s)
+18:11:34.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:35.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:35.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:35.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:36.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:36.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:36.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:37.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:37.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:37.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:38.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:38.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:38.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:39.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:39.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:39.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:40.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:40.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:40.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:41.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:41.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:41.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:42.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:42.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:42.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:44.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:44.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:44.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:45.088 UTC [1] DEBUG launch_new_connection: already progress
+18:11:45.092 UTC [1] DEBUG launch_new_connection: already progress
+18:11:45.098 UTC [1] DEBUG launch_new_connection: already progress
+18:11:45.103 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@(bad-af):0 dns_callback: inet4: 172.20.0.2:5432
+18:11:45.103 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 launching new connection to server
+18:11:45.103 UTC [1] DEBUG launch_new_connection: already progress
+18:11:45.103 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: connect ok
+18:11:45.103 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 new connection to server (from 172.20.0.3:34104)
+18:11:45.103 UTC [1] DEBUG launch_new_connection: already progress
+18:11:45.117 UTC [1] DEBUG launch_new_connection: already progress
+18:11:45.119 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 calling login_answer
+18:11:45.119 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: req SASL
+18:11:45.119 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: SASL advertised mechanism: SCRAM-SHA-256
+18:11:45.120 UTC [1] ERROR S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 cannot do SCRAM authentication: wrong password type
+18:11:45.120 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 closing because: failed to answer authreq (age=0s)
+18:11:50.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:50.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:11:51.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:51.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:51.755 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:52.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:11:52.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:52.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:11:53.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:53.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:53.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:11:54.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:54.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:54.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:11:55.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:55.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:55.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:11:56.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:56.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:56.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:57.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:11:57.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:57.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:11:59.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:11:59.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:12:00.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:12:00.421 UTC [1] DEBUG launch_new_connection: already progress
+18:12:00.421 UTC [1] DEBUG launch_new_connection: already progress
+18:12:00.427 UTC [1] DEBUG launch_new_connection: already progress
+18:12:00.433 UTC [1] DEBUG launch_new_connection: already progress
+18:12:00.437 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@(bad-af):0 dns_callback: inet4: 172.20.0.2:5432
+18:12:00.437 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 launching new connection to server
+18:12:00.437 UTC [1] DEBUG launch_new_connection: already progress
+18:12:00.437 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: connect ok
+18:12:00.437 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 new connection to server (from 172.20.0.3:41682)
+18:12:00.437 UTC [1] DEBUG launch_new_connection: already progress
+18:12:00.452 UTC [1] DEBUG launch_new_connection: already progress
+18:12:00.455 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 calling login_answer
+18:12:00.455 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: req SASL
+18:12:00.455 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: SASL advertised mechanism: SCRAM-SHA-256
+18:12:00.455 UTC [1] ERROR S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 cannot do SCRAM authentication: wrong password type
+18:12:00.455 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 closing because: failed to answer authreq (age=0s)
+18:12:05.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:06.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:06.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:06.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:07.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:07.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:07.754 UTC [1] LOG stats: 0 xacts/s, 0 queries/s, 0 client parses/s, 0 server parses/s, 0 binds/s, in 0 B/s, out 0 B/s, xact 0 us, query 0 us, wait 0 us
+18:12:07.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:08.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:08.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:08.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:09.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:09.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:09.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:12:10.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:12:10.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:10.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:11.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:11.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:11.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:12.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:12.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:12.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:12:13.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:12:13.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:12:14.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:12:15.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:12:15.421 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@(bad-af):0 dns_callback: inet4: 172.20.0.2:5432
+18:12:15.421 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 launching new connection to server
+18:12:15.421 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: connect ok
+18:12:15.421 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 new connection to server (from 172.20.0.3:59774)
+18:12:15.422 UTC [1] DEBUG launch_new_connection: already progress
+18:12:15.437 UTC [1] DEBUG launch_new_connection: already progress
+18:12:15.440 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 calling login_answer
+18:12:15.440 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: req SASL
+18:12:15.440 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: SASL advertised mechanism: SCRAM-SHA-256
+18:12:15.440 UTC [1] ERROR S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 cannot do SCRAM authentication: wrong password type
+18:12:15.440 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 closing because: failed to answer authreq (age=0s)
+18:12:20.755 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:21.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:21.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:21.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:22.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:22.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:22.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:23.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:23.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:23.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:24.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:24.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:24.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:12:25.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:12:25.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:12:25.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:26.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:26.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:26.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:27.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:27.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:27.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:12:28.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:12:29.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:12:30.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:12:30.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 0 s
+18:12:30.755 UTC [1] DEBUG launch_new_connection: already progress
+18:12:30.755 UTC [1] DEBUG launch_new_connection: already progress
+18:12:30.762 UTC [1] DEBUG launch_new_connection: already progress
+18:12:30.767 UTC [1] DEBUG launch_new_connection: already progress
+18:12:30.771 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@(bad-af):0 dns_callback: inet4: 172.20.0.2:5432
+18:12:30.771 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 launching new connection to server
+18:12:30.771 UTC [1] DEBUG launch_new_connection: already progress
+18:12:30.771 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: connect ok
+18:12:30.771 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 new connection to server (from 172.20.0.3:39506)
+18:12:30.771 UTC [1] DEBUG launch_new_connection: already progress
+18:12:30.785 UTC [1] DEBUG launch_new_connection: already progress
+18:12:30.787 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 calling login_answer
+18:12:30.787 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: req SASL
+18:12:30.787 UTC [1] DEBUG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 S: SASL advertised mechanism: SCRAM-SHA-256
+18:12:30.787 UTC [1] ERROR S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 cannot do SCRAM authentication: wrong password type
+18:12:30.787 UTC [1] LOG S-0x7f3e191a4380: testdb/pgbouncer@172.20.0.2:5432 closing because: failed to answer authreq (age=0s)
+18:12:35.755 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:36.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:36.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 9 s
+18:12:36.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:37.088 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:37.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 8 s
+18:12:37.755 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:38.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:38.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:38.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 7 s
+18:12:39.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:39.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:39.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 6 s
+18:12:40.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:12:40.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:12:40.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 5 s
+18:12:41.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:41.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:41.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 4 s
+18:12:42.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:42.420 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:42.754 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 3 s
+18:12:43.087 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:12:43.421 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:12:43.753 UTC [1] DEBUG launch_new_connection: last failed, not launching new connection yet, still waiting 2 s
+18:12:44.420 UTC [1] LOG C-0x7f3e191f9360: testdb/(nouser)@69.174.173.95:35544 closing because: query_wait_timeout (age=120s)
+18:12:44.420 UTC [1] WARNING C-0x7f3e191f9360: testdb/(nouser)@69.174.173.95:35544 pooler error: query_wait_timeout
+18:13:07.754 UTC [1] LOG stats: 0 xacts/s, 0 queries/s, 0 client parses/s, 0 server parses/s, 0 binds/s, in 0 B/s, out 0 B/s, xact 0 us, query 0 us, wait 0 us
+18:14:07.754 UTC [1] LOG stats: 0 xacts/s, 0 queries/s, 0 client parses/s, 0 server parses/s, 0 binds/s, in 0 B/s, out 0 B/s, xact 0 us, query 0 us, wait 0 us
+18:15:07.754 UTC [1] LOG stats: 0 xacts/s, 0 queries/s, 0 client parses/s, 0 server parses/s, 0 binds/s, in 0 B/s, out 0 B/s, xact 0 us, query 0 us, wait 0 us
+18:16:07.753 UTC [1] LOG stats: 0 xacts/s, 0 queries/s, 0 client parses/s, 0 server parses/s, 0 binds/s, in 0 B/s, out 0 B/s, xact 0 us, query 0 us, wait 0 us
+weiping_gke2@pgbouncer-instance-e4bc2727f0 /run/user $ 

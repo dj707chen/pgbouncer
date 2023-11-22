@@ -104,11 +104,13 @@ variable "users" {
       name : "admin"
       admin: true
       password : "admin@123"
+      random_password: false
     },
     {
       name : "postgres"
       admin: true
       password : "admin@123"
+      random_password: false
     }
   ]
 }
@@ -116,13 +118,16 @@ variable "users" {
 variable "auth_user" {
   description = "Any user not specified in `users` will be queried through the `auth_query` query from `pg_shadow` in the database, using `auth_user`. The user for `auth_user` must be included in `users`."
   type        = string
-  default     = null
+  default     = "pgbouncer"
 }
 
 variable "auth_query" {
   description = "Query to load user’s password from database."
   type        = string
-  default     = null
+  default     = "SELECT p_user, p_password FROM public.lookup($1)"
+  # default   = "SELECT username, password from pgbouncer.get_auth($1)"
+  # Error in Cloud PG: db=testdb,user=pgbouncer ERROR:  permission denied for table pg_authid
+  # Try lookup function which query the pg_shadow view
 }
 
 variable "pool_mode" {

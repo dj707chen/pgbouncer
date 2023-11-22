@@ -11,7 +11,6 @@
 - https://github.com/CrunchyData/postgres-operator
 - https://access.crunchydata.com/documentation/postgres-operator/latest
 
-
     export YOUR_GITHUB_UN=dj707chen
     git clone --depth 1 "git@github.com:${YOUR_GITHUB_UN}/postgres-operator-examples.git"
     cd postgres-operator-examples

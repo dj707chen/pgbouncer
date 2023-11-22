@@ -288,6 +288,19 @@ module "db" {
     ]
   }
 
+  database_flags = [
+    # These two flags are based on:
+    #   https://cloud.google.com/sql/docs/postgres/users#setting_the_flags_for_the_pg_shadow_view_and_the_pg_authid_table
+    {
+      name  = "cloudsql.pg_authid_select_role"
+      value = var.auth_user
+    },
+    {
+      name  = "cloudsql.pg_shadow_select_role"
+      value = var.auth_user
+    }
+  ]
+
   # Read replica configurations
   read_replica_name_suffix = "-ha"
   read_replicas            = [

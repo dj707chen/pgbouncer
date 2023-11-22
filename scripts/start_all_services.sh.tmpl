@@ -18,7 +18,6 @@ docker network create demo-network
         -p ${listen_port}:${listen_port} \
         -v /run/user/userlist.txt:/etc/pgbouncer/userlist.txt:ro \
         -v /run/user/pgbouncer.ini:/etc/pgbouncer/pgbouncer.ini:ro \
-        -v /run/user/pgbouncer-my.log:/var/log/pgbouncer/pgbouncer-my.log \
         ${pgbouncer_image}
 
 # run the hammerdb docker container
